@@ -9,13 +9,17 @@ import androidx.fragment.app.Fragment
 import com.example.dlp.databinding.FragHomeBinding
 
 class HomeFragment : Fragment() {
-    lateinit var binding : FragHomeBinding
+    lateinit var binding: FragHomeBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.frag_home, container, false)
+        initView()
         return binding.root
+    }
+
+    private fun initView() {
+        
     }
 }
