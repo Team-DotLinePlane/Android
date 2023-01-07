@@ -20,6 +20,18 @@
         android:theme="@style/Theme.DLP"
         tools:targetApi="31">
         <activity
+            android:name=".ui.vote.VoteDoneActivity"
+            android:exported="false"/>
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
+        <activity
+            android:name=".ui.vote.VoteActivity"
+            android:exported="false"/>
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.Splash">

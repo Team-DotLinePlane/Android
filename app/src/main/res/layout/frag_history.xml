@@ -52,19 +52,19 @@
                 android:id="@+id/tv_history"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="23dp"
+                android:layout_marginTop="50dp"
                 android:text="HISTORY"
                 android:textAppearance="@style/Text.Medium_20_White"
                 android:textColor="@color/main"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layout_profile" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_nickname" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_list"
                 android:layout_width="409dp"
-                android:layout_height="555dp"
+                android:layout_height="0dp"
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="26dp"
                 android:layout_marginEnd="35dp"
@@ -102,34 +102,35 @@
                 android:id="@+id/layout_profile"
                 android:layout_width="100dp"
                 android:layout_height="98dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:background="@drawable/background_round"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_profile">
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:id="@+id/tv_nickname_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="9dp"
-                android:text="닉네임"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toEndOf="@+id/layout_profile"
-                app:layout_constraintTop_toTopOf="@+id/layout_profile" />
-
-            <TextView
                 android:id="@+id/tv_nickname"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="10dp"
                 android:text="SHELLY"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/tv_nickname_title"
-                app:layout_constraintTop_toBottomOf="@+id/tv_nickname_title" />
+                app:layout_constraintEnd_toEndOf="@+id/layout_profile"
+                app:layout_constraintStart_toStartOf="@+id/layout_profile"
+                app:layout_constraintTop_toBottomOf="@+id/layout_profile" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_nickname"
+                app:layout_constraintStart_toEndOf="@+id/tv_nickname"
+                app:layout_constraintTop_toTopOf="@+id/tv_nickname"
+                app:srcCompat="@drawable/history_pencil_grey" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 

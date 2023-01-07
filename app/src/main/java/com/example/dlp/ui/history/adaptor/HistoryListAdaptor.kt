@@ -1,8 +1,9 @@
-package com.example.dlp
+package com.example.dlp.ui.history.adaptor
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dlp.HistoryData
 import com.example.dlp.databinding.HistoryListItemBinding
 
 
