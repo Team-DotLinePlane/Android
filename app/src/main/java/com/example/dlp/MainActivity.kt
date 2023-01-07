@@ -1,8 +1,14 @@
 package com.example.dlp
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.example.dlp.databinding.ActivityMainBinding
 import com.example.dlp.ui.map.MapFragment
@@ -32,12 +38,13 @@ class MainActivity : AppCompatActivity() {
                         Log.e("myLog", "actionHome")
                     }
                     R.id.action_map -> {
-                        supportFragmentManager
-                            .beginTransaction()
-                            .replace(binding.frameLayout.id, MapFragment())
-                            .commitAllowingStateLoss()
-                        Log.e("myLog", "actionmap")
-
+                        checkLocationPermission {
+                            supportFragmentManager
+                                .beginTransaction()
+                                .replace(binding.frameLayout.id, MapFragment())
+                                .commitAllowingStateLoss()
+                            Log.e("myLog", "actionmap")
+                        }
                     }
                     R.id.action_history -> {
                         supportFragmentManager
@@ -52,4 +59,46 @@ class MainActivity : AppCompatActivity() {
             selectedItemId = R.id.action_home
         }
     }
+
+    private fun checkLocationPermission(onSucces: () -> Unit) {
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+            && ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            onSucces()
+        } else {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                ),
+                1
+            )
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 1) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(binding.frameLayout.id, MapFragment())
+                    .commitAllowingStateLoss()
+            } else {
+                Toast.makeText(this, "권한에 동의하지 않을 경우 이용할 수 없습니다.", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 }
+
