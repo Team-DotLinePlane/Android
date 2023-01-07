@@ -1,6 +1,7 @@
 package com.example.dlp
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
@@ -17,6 +18,7 @@ import com.example.dlp.network.request.SaveTokenRequest
 import com.example.dlp.ui.history.HistoryFragment
 import com.example.dlp.ui.home.HomeFragment
 import com.example.dlp.ui.map.MapFragment
+import com.example.dlp.ui.vote.VoteDoneActivity
 import com.example.dlp.util.PreferenceUtil
 import com.example.dlp.util.PreferenceUtil.EMPTY_TEXT
 import com.example.dlp.util.PreferenceUtil.FCM_TOKEN_TEXT
@@ -54,6 +56,22 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+//        val intent = Intent(
+//            this@MainActivity,
+//            VoteDoneActivity::class.java
+//        )
+//        getIntent().let {
+//
+//        }
+//        if (extras != null) {
+//            Log.e(
+//                "bundle 유효",
+//                getIntent().getStringExtra("fromFCM_Channel")!!
+//            )
+//            if (getIntent().getStringExtra("fromFCM_Channel") == "vote") startActivity(intent)
+//            else Log.e("fcm", "from :: meal")
+//
+//        }
         binding.navigationView.run {
             setOnItemSelectedListener {
                 when (it.itemId) {
