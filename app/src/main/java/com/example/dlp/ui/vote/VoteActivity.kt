@@ -35,6 +35,7 @@ class VoteActivity : AppCompatActivity() {
             add(VoteData("일식"))
             add(VoteData("피자"))
             add(VoteData("고기/구이"))
+            add(VoteData("양식"))
             add(VoteData("치킨"))
             add(VoteData("중식"))
             add(VoteData("아시안"))

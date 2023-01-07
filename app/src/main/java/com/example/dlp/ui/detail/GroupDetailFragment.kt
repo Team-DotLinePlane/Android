@@ -1,5 +1,6 @@
 package com.example.dlp.ui.detail
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import com.example.dlp.databinding.FragGroupDetailBinding
 import com.example.dlp.network.NetworkModule.groupService
 import com.example.dlp.network.response.SelectGroupResponse
 import com.example.dlp.ui.home.HomeFragment
+import com.example.dlp.ui.vote.VoteActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,6 +38,11 @@ class GroupDetailFragment(private val itemId: Int) : Fragment() {
             (activity as MainActivity).replaceFramgent(HomeFragment())
         }
         getDetail()
+
+        binding.layoutGotoVote.setOnClickListener {
+            val intent = Intent(context, VoteActivity::class.java)
+            startActivity(intent)
+        }
 
         return binding.root
     }
