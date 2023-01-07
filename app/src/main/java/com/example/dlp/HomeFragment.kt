@@ -1,6 +1,7 @@
 package com.example.dlp
 
 import BottomSheetDialog
+import android.content.Intent
 import android.os.Bundle
 import android.provider.ContactsContract.Intents.Insert
 import android.util.Log
@@ -13,6 +14,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.dlp.databinding.FragHomeBinding
 import com.example.dlp.ui.dialogs.InsertGroupCodeDialogInterface
+import com.example.dlp.ui.vote.VoteActivity
 
 class HomeFragment : Fragment(), InsertGroupCodeDialogInterface {
     lateinit var binding: FragHomeBinding
@@ -22,6 +24,12 @@ class HomeFragment : Fragment(), InsertGroupCodeDialogInterface {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.frag_home, container, false)
         initClickListener()
+
+        binding.tvEmptygroup.setOnClickListener {
+            val intent = Intent(context, VoteActivity::class.java)
+            startActivity(intent)
+        }
+
         return binding.root
     }
 

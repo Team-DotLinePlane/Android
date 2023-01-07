@@ -9,10 +9,9 @@
         android:background="#EEEDEC">
 
 
-        <androidx.core.widget.NestedScrollView
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fillViewport="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +19,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/background_round"
                 android:backgroundTint="@color/white">
@@ -53,22 +52,23 @@
                     android:id="@+id/tv_history"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="40dp"
                     android:text="HISTORY"
                     android:textAppearance="@style/Text.Medium_20_White"
                     android:textColor="@color/main"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_nickname" />
+                    app:layout_constraintTop_toBottomOf="@+id/divider1" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_list"
-                    android:layout_width="409dp"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="35dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
                     android:layout_marginTop="26dp"
-                    android:layout_marginEnd="35dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginBottom="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -83,6 +83,19 @@
                     app:layout_constraintTop_toTopOf="@+id/my_lunch"
                     app:srcCompat="@drawable/history_top"
                     app:tint="@color/main" />
+
+                <View
+                    android:id="@+id/divider1"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="40dp"
+                    android:background="#9F9494"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_nickname" />
 
                 <TextView
                     android:id="@+id/my_lunch"
@@ -99,40 +112,17 @@
                     app:layout_constraintStart_toEndOf="@+id/img_history_top"
                     app:layout_constraintTop_toBottomOf="@+id/tv_history" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/layout_profile"
-                    android:layout_width="100dp"
-                    android:layout_height="98dp"
-                    android:layout_marginTop="30dp"
-                    android:background="@drawable/background_round"
-                    android:src="@drawable/img_app_logo"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_profile">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="140dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/img_app_logo" />
-                    </androidx.cardview.widget.CardView>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
                 <TextView
                     android:id="@+id/tv_nickname"
                     android:layout_width="wrap_content"
                     android:layout_height="24dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:text="SHELLY"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="@+id/layout_profile"
-                    app:layout_constraintStart_toStartOf="@+id/layout_profile"
-                    app:layout_constraintTop_toBottomOf="@+id/layout_profile" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -143,8 +133,18 @@
                     app:layout_constraintStart_toEndOf="@+id/tv_nickname"
                     app:layout_constraintTop_toTopOf="@+id/tv_nickname"
                     app:srcCompat="@drawable/history_pencil_grey" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="101dp"
+                    android:layout_height="101dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_nickname"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile"
+                    app:srcCompat="@drawable/profile" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.core.widget.NestedScrollView>
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
