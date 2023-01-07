@@ -13,6 +13,7 @@
             android:paddingHorizontal="20dp"
             android:paddingVertical="10dp"
             android:textColor="@color/white"
+            android:fontFamily="@font/app_font"
             android:text="카테고리 이름" />
 
     </LinearLayout>
