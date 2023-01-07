@@ -42,6 +42,7 @@ android {
 
 dependencies {
     implementation 'com.google.firebase:firebase-messaging-ktx:23.1.1'
+    implementation 'androidx.work:work-runtime-ktx:2.7.1'
     def lifecycle_version = "2.5.1"
     def room_version = "2.2.3"
     // ViewModel
