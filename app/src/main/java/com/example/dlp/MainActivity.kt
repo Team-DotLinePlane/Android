@@ -5,27 +5,26 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.dlp.databinding.ActivityMainBinding
 import com.example.dlp.ui.map.MapFragment
+import com.example.dlp.ui.map.MapViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
+    private lateinit var viewModel: MainActivityViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        viewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
-        supportFragmentManager
-            .beginTransaction()
-            .replace(binding.frameLayout.id, HomeFragment())
-            .commitAllowingStateLoss()
 
         binding.navigationView.run {
             setOnItemSelectedListener {
@@ -60,6 +59,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun replaceToMap(fragment: Fragment) {
+        binding.navigationView.selectedItemId = R.id.action_map
+    }
+
     private fun checkLocationPermission(onSucces: () -> Unit) {
         if (ContextCompat.checkSelfPermission(
                 this,
@@ -81,6 +84,13 @@ class MainActivity : AppCompatActivity() {
                 1
             )
         }
+    }
+
+    fun replaceFramgent(fragment: Fragment) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(binding.frameLayout.id, fragment)
+            .commitAllowingStateLoss()
     }
 
     override fun onRequestPermissionsResult(

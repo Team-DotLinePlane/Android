@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dlp.MainActivityViewModel
 import com.example.dlp.R
 import com.example.dlp.databinding.FragMapBinding
 import com.example.dlp.ui.map.adapter.MapCategoryAdapter
@@ -21,6 +23,7 @@ class MapFragment : Fragment() {
 
     private lateinit var binding: FragMapBinding
     private lateinit var viewModel: MapViewModel
+    private lateinit var activityViewModel: MainActivityViewModel
     private lateinit var mapView: MapView
     private val categoryAdapter: MapCategoryAdapter by lazy {
         MapCategoryAdapter()
@@ -31,12 +34,24 @@ class MapFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragMapBinding.inflate(inflater, container, false)
-        mapView = MapView(requireContext())
+        if (!(::mapView.isInitialized)) {
+            mapView = MapView(requireContext())
+        }
+        activityViewModel = ViewModelProvider(requireActivity())[MainActivityViewModel::class.java]
         viewModel = ViewModelProvider(this)[MapViewModel::class.java]
         viewModel.addLocationListener()
-
         initObserver()
         initView()
+
+        if (activityViewModel.selectedKeyword.value != null) {
+            if (activityViewModel.selectedKeyword.value!!.isNotBlank()) {
+                val seacrhStr = activityViewModel.selectedKeyword.value!!
+                Toast.makeText(requireContext(), "$seacrhStr 검색 중입니다.", Toast.LENGTH_SHORT).show()
+                categoryAdapter.selectedStr = seacrhStr
+                viewModel.setSearchStr(seacrhStr)
+            }
+        }
+
         return binding.root
     }
 
@@ -74,6 +89,7 @@ class MapFragment : Fragment() {
         categoryAdapter.setOnItemClickListener {
             categoryAdapter.selectedStr = it
             viewModel.setSearchStr(it)
+            Toast.makeText(requireContext(), "$it 검색 중입니다.", Toast.LENGTH_SHORT).show()
             categoryAdapter.notifyDataSetChanged()
         }
         binding.apply {
@@ -108,6 +124,11 @@ class MapFragment : Fragment() {
         override fun getPressedCalloutBalloon(poiItem: MapPOIItem?): View {
             return mCalloutBalloon
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.mapView.removeAllViews()
     }
 
     override fun onDestroyView() {

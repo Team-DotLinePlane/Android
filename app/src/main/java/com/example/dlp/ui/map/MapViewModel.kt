@@ -3,6 +3,7 @@ package com.example.dlp.ui.map
 import android.annotation.SuppressLint
 import android.location.Location
 import android.os.Looper
+import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

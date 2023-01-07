@@ -63,6 +63,7 @@
             android:orientation="vertical"
             android:id="@+id/vote_started_layout"
             android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
             android:layout_marginHorizontal="40dp"
             android:layout_height="wrap_content">
 
@@ -120,6 +121,7 @@
             android:orientation="vertical"
             android:id="@+id/vote_not_started_layout"
             android:visibility="gone"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
