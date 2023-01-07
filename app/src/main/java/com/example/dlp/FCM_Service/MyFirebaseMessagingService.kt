@@ -57,18 +57,10 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
      */
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-        val title = remoteMessage.data["title"]
-        val message = remoteMessage.data["body"]
-        val channel = remoteMessage.data["channel_id"]
-        Log.e("//=======//", "===================================//")
-        Log.e("   Title  :", title!!)
-        Log.e("//=======//", "===================================//")
-        Log.e("//=======//", "===================================//")
-        Log.e("   body   :", message!!)
-        Log.e("//=======//", "===================================//")
-        Log.e("//=======//", "===================================//")
-        Log.e("   channel   :", channel!!)
-        Log.e("//=======//", "===================================//")
+        val title = remoteMessage.data["time"]
+        val message = remoteMessage.data["score"]
+        Log.i("Test", title.toString())
+        Log.i("Test", message.toString())
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val CHANNEL_DESCRIPTION = "ChannerDescription"
             val importance = NotificationManager.IMPORTANCE_HIGH
@@ -76,7 +68,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
                 .setUsage(AudioAttributes.USAGE_NOTIFICATION)
                 .build()
 
-            val builder: NotificationCompat.Builder = NotificationCompat.Builder(this, channel)
+            val builder: NotificationCompat.Builder = NotificationCompat.Builder(this, "Channel")
                 .setSmallIcon(R.drawable.ic_launcher_background)
                 .setAutoCancel(true)
                 .setDefaults(Notification.DEFAULT_ALL)
@@ -90,7 +82,10 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
                 builder.setContentTitle(title)
                 builder.setVibrate(longArrayOf(500, 500))
             }
-            //        notificationManager.notify(Integer.parseInt(remoteMessage.getData().get("Type")), builder.build());
+            notificationManager.notify(
+                0,
+                builder.build()
+            );
             notificationManager.notify(System.currentTimeMillis().toInt() / 1000, builder.build())
         }
 
