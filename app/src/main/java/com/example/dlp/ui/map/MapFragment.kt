@@ -119,7 +119,7 @@ class MapFragment : Fragment() {
         private val placeName: TextView = mCalloutBalloon.findViewById(R.id.place_name_tv)
         private val categoryName: TextView = mCalloutBalloon.findViewById(R.id.category_tv)
         private val phoneNumber: TextView = mCalloutBalloon.findViewById(R.id.phone_tv)
-        private val phoneImg: ImageView = mCalloutBalloon.findViewById(R.id.phone_iv)
+//        private val phoneImg: ImageView = mCalloutBalloon.findViewById(R.id.phone_iv)
         private val mapIv: ImageView = mCalloutBalloon.findViewById(R.id.map_iv)
 
         override fun getCalloutBalloon(poiItem: MapPOIItem?): View {
@@ -137,6 +137,7 @@ class MapFragment : Fragment() {
             val x = poiInfo[3]
             val y = poiInfo[4]
             val placeName = poiInfo[5]
+            val phoneImg: ImageView = mCalloutBalloon.findViewById(R.id.phone_iv)
 
             phoneImg.setOnClickListener {
                 val intent = Intent(
