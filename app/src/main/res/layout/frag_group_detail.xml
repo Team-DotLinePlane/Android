@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/img_history_top"
+            android:layout_width="12dp"
+            android:layout_height="17dp"
+            android:layout_marginStart="63dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/my_lunch"
+            app:srcCompat="@drawable/history_top"
+            app:tint="@color/main" />
+
+        <TextView
+            android:id="@+id/my_lunch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="48dp"
+            android:fontFamily="@font/notosans_kr_bold"
+            android:text="월요일 점심 팟"
+            android:textColor="@color/main"
+            android:textSize="23sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/img_history_bottom"
+            app:layout_constraintStart_toEndOf="@+id/img_history_top" />
+
+        <ImageView
+            android:id="@+id/img_history_bottom"
+            android:layout_width="12dp"
+            android:layout_height="17dp"
+            android:layout_marginEnd="63dp"
+            app:layout_constraintBottom_toBottomOf="@+id/my_lunch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/history_bottom"
+            app:tint="@color/main" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/vote_layout"
+        app:layout_constraintTop_toBottomOf="@id/title_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/vote_started_layout"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="40dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/font_black"
+                android:text="23년 1월 7일" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="투표가 다음 시간뒤에 종료됩니다" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="48dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:shadowColor="#000000"
+                android:shadowDx="1.3"
+                android:shadowDy="1.3"
+                android:shadowRadius="2.6"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:text="8:52" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="20dp"
+                android:text="점심 투표 참가하기"
+                android:textColor="@color/main"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:background="@drawable/round_square_16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="점심 투표 끝내기"
+                android:textColor="@color/font_grey"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/vote_not_started_layout"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/background_dark" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:paddingVertical="20dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="11:30"
+                    android:textSize="48dp" />
+
+                <ImageView
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
+                    android:layout_marginStart="40dp"
+                    android:background="@drawable/ic_baseline_alarm_on_24"
+                    android:backgroundTint="@color/splash_background" />
+
+            </LinearLayout>
+
+            <!--            <View-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="3dp"-->
+            <!--                android:layout_marginHorizontal="40dp"-->
+            <!--                android:background="@color/background_dark" />-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="20dp"
+                android:text="점심 투표 시작하기"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:background="@drawable/round_square_16dp"
+                android:backgroundTint="@color/main" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        app:layout_constraintTop_toBottomOf="@id/vote_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/background_dark" />
+
+    <LinearLayout
+        android:id="@+id/member_layout"
+        app:layout_constraintTop_toBottomOf="@id/vote_layout"
+        android:layout_marginTop="60dp"
+        android:paddingHorizontal="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MEMEBERS"
+            android:textColor="@color/font_blue"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            tools:listitem="@layout/item_member" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/member_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/history_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/img_history_top2"
+                android:layout_width="12dp"
+                android:layout_height="17dp"
+                android:layout_marginStart="63dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/my_lunch2"
+                app:srcCompat="@drawable/history_top"
+                app:tint="@color/main" />
+
+            <TextView
+                android:id="@+id/my_lunch2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="48dp"
+                android:fontFamily="@font/notosans_kr_bold"
+                android:text="우리 점심 기록 목록"
+                android:textColor="@color/main"
+                android:textSize="23sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/img_history_bottom2"
+                app:layout_constraintStart_toEndOf="@+id/img_history_top2" />
+
+            <ImageView
+                android:id="@+id/img_history_bottom2"
+                android:layout_width="12dp"
+                android:layout_height="17dp"
+                android:layout_marginEnd="63dp"
+                app:layout_constraintBottom_toBottomOf="@+id/my_lunch2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/history_bottom"
+                app:tint="@color/main" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/history_list_item" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
