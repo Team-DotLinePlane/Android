@@ -13,6 +13,7 @@
         <item name="android:statusBarColor">@color/background</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">?attr/background</item>
         <!-- Customize your theme here. -->
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
     <!-- Splash Theme -->
@@ -26,6 +27,18 @@
         <item name="android:windowBackground">@color/splash_background</item>
     </style>
 
+    <!-- bottomsheet Style -->
+    <style name="AppBottomSheetDialogTheme"
+        parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+        <item name="colorPrimary">@color/main</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+    <style name="AppModalStyle"
+        parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/custom_bottom_sheet</item>
+    </style>
     <!-- Font Style -->
     <style name="Text.Bold_32_Blue" parent="android:TextAppearance">
         <item name="android:textSize">32sp</item>
@@ -208,6 +221,13 @@
     <style name="Text.Regular_16_grey" parent="android:TextAppearance">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/font_grey</item>
+        <item name="android:fontFamily">@font/app_font</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="Text.Regular_16_Main" parent="android:TextAppearance">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/main</item>
         <item name="android:fontFamily">@font/app_font</item>
         <item name="android:textStyle">normal</item>
     </style>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_bottom_sheet"
+        android:paddingHorizontal="32dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="40dp">
+
+        <TextView
+            android:id="@+id/tv_groupcode_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/groupcode"
+            android:textAppearance="@style/Text.Regular_16_Main"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="60dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_insertgroupcode"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_groupcode_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="그룹코드 입력" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_insertgroupcode"
+            android:text="@string/Home_insertgroupcode"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_insertgroupcode"
+            android:layout_marginTop="14dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_insertgroupcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
+            android:background="@drawable/view_round_main_filled"
+            app:layout_constraintTop_toBottomOf="@id/tv_insertgroupcode"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@string/string_confirm"
+            android:textAppearance="@style/Text.Bold_16_White"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
