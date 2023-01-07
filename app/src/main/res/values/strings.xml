@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">DLP</string>
-    <string name="home">Home</string>
+    <string name="home">HOME</string>
+    <string name="groupcode">GROUP CODE</string>
     <string name="map">map</string>
     <string name="history">history</string>
     <string name="Home_creategroup">그룹 생성  </string>
@@ -8,4 +9,6 @@
     <string name="Home_error_empty_group">생성된 그룹이 없습니다</string>
     <string name="Home_Button_createnewgroup">새로운 그룹 만들기</string>
     <string name="Home_insertgroupname">그룹 이름을 입력해주세요</string>
+    <string name="sharegroupcode">그룹 코드를 공유해주세요!</string>
+    <string name="string_confirm">확인</string>
 </resources>

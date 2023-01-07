@@ -13,6 +13,9 @@
     <color name="button">#556FCB</color>
     <color name="button_light">#C5CFEA</color>
     <color name="background">#EEEDEC</color>
+    <color name="background_dark">#E4E4E4</color>
+    <color name="splash_background">#FEA53D</color>
+
 
     <!-- 폰트 컬러 (블랙) -->view_round_main.xml
     <color name="font_black">#191919</color>
