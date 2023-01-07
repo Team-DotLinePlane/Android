@@ -25,7 +25,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_top"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_group"
@@ -89,18 +89,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_top"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:visibility="gone">
+            android:visibility="visible">
 
-            <TextView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/tv_emptygroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="226dp"
-                android:text="@string/Home_error_empty_group"
-                android:textAppearance="@style/Text.Bold_18_Main" />
+                android:elevation="20dp"
+                android:src="@drawable/dlp_icon3" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_creategroup"
@@ -116,6 +116,7 @@
                 android:layout_marginTop="44dp" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_participate_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/view_round"
@@ -138,7 +139,7 @@
             android:layout_marginTop="200dp"
             android:padding="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"

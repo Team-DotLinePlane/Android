@@ -5,3 +5,7 @@ data class HistoryData(
     val category: String,
     val menu: String,
 )
+
+data class VoteData(
+    val title: String
+)

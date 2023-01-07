@@ -1,4 +1,4 @@
-package com.example.dlp
+package com.example.dlp.ui.history
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dlp.*
 import com.example.dlp.databinding.FragHistoryBinding
+import com.example.dlp.ui.history.adaptor.HistoryListAdaptor
 import com.example.dlp.ui.map.MapFragment
 
 class HistoryFragment : Fragment() {

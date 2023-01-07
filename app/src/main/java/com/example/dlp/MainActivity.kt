@@ -12,8 +12,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.dlp.databinding.ActivityMainBinding
+import com.example.dlp.ui.history.HistoryFragment
 import com.example.dlp.ui.map.MapFragment
-import com.example.dlp.ui.map.MapViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
