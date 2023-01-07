@@ -12,9 +12,17 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.dlp.databinding.ActivityMainBinding
+import com.example.dlp.network.NetworkModule.userService
+import com.example.dlp.network.request.SaveTokenRequest
 import com.example.dlp.ui.history.HistoryFragment
 import com.example.dlp.ui.map.MapFragment
+import com.example.dlp.util.PreferenceUtil
+import com.example.dlp.util.PreferenceUtil.EMPTY_TEXT
+import com.example.dlp.util.PreferenceUtil.FCM_TOKEN_TEXT
 import com.google.firebase.messaging.FirebaseMessaging
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -29,7 +37,20 @@ class MainActivity : AppCompatActivity() {
         FirebaseMessaging.getInstance().token.addOnSuccessListener { instanceIdResult ->
             val token: String = instanceIdResult.toString()
             // send it to server
-            Log.i("FCM TOKEN", token)
+            Log.i("FCM", token)
+            val pref = PreferenceUtil
+            if (pref.getString(FCM_TOKEN_TEXT, EMPTY_TEXT) == EMPTY_TEXT) {
+                pref.setString(FCM_TOKEN_TEXT, token)
+                userService.saveToken(SaveTokenRequest(token)).enqueue(object : Callback<Void> {
+                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                        Log.i("Http Response", response.toString())
+                    }
+
+                    override fun onFailure(call: Call<Void>, t: Throwable) {
+                        t.printStackTrace()
+                    }
+                })
+            }
         }
 
         binding.navigationView.run {
