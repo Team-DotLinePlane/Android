@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.dlp.databinding.ActivityMainBinding
 import com.example.dlp.ui.history.HistoryFragment
 import com.example.dlp.ui.map.MapFragment
+import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -25,6 +26,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         viewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        FirebaseMessaging.getInstance().token.addOnSuccessListener { instanceIdResult ->
+            val token: String = instanceIdResult.toString()
+            // send it to server
+            Log.i("FCM TOKEN", token)
+        }
 
         binding.navigationView.run {
             setOnItemSelectedListener {
