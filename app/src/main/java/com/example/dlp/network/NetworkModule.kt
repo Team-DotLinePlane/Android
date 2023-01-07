@@ -33,6 +33,18 @@ object NetworkModule {
             .addCallAdapterFactory(ApiResponseCallAdapterFactory.create())
             .build()
 
+
+    private val retrofit =
+        Retrofit.Builder()
+            .client(okHttpClient)
+            .baseUrl("http://3.36.183.196/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create())
+            .addCallAdapterFactory(ApiResponseCallAdapterFactory.create())
+            .build()
+
+    // API를 제공하는 서비스
     val mapService = kakaoRetrofit.create(MapService::class.java)
+    val userService = retrofit.create(UserService::class.java)
 }
 
