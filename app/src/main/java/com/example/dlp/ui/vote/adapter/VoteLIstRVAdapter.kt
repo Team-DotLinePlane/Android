@@ -15,6 +15,7 @@ import kotlin.coroutines.coroutineContext
 class VoteLIstRVAdapter (private val VoteList: ArrayList<VoteData>, val itemClick: (VoteData) -> Unit) : RecyclerView.Adapter<VoteLIstRVAdapter.VoteDataViewHolder>(){
     var selectPrefer = 0
     var preferArray = IntArray(11, { 0 })
+    var preferList : MutableList<Int> = MutableList(11) { 0 }
     inner class VoteDataViewHolder( val viewBinding: ItemVoteCategoryBinding, val itemClick: (VoteData) -> Unit) : RecyclerView.ViewHolder(viewBinding.root){
         // val btnGood = itemView?.findViewById<Button>(R.id.btn_good)
         private val context = viewBinding.root.context
@@ -52,24 +53,24 @@ class VoteLIstRVAdapter (private val VoteList: ArrayList<VoteData>, val itemClic
         holder.bind(VoteList[position])
         // btnGood click -> 배열의 값 1
         holder.viewBinding.btnGood.setOnClickListener {
-            when(preferArray[position]) {
+            when(preferList[position]) {
                 0 -> {
-                    Log.i("test","none")
-                        preferArray[position] = 1
+                    Log.i("test","none position $position")
+                    preferList[position] = 1
                         holder.viewBinding.btnGood.setImageResource(R.drawable.ic_thumb_up_clicked)
                     // 이미지 필터 변경(누른상태)
                 }
                 1 -> {
-                    Log.i("test","cancel")
-                    preferArray[position] = 0
+                    Log.i("test","cancel position $position")
+                    preferList[position] = 0
                     holder.viewBinding.btnGood.setImageResource(R.drawable.ic_thumb_up)
                     // 배열 값 0으로 바꾸기
                     // 이미지 필터 변경(안눌린상태)
 
                 }
                 -3 -> {
-                    Log.i("test","click")
-                    preferArray[position] = 1
+                    Log.i("test","click position $position")
+                    preferList[position] = 1
                     holder.viewBinding.btnGood.setImageResource(R.drawable.ic_thumb_up_clicked)
                     holder.viewBinding.btnBad.setImageResource(R.drawable.ic_thumb_down)
                     // 배열 값 1 로 바꾸기(
@@ -80,24 +81,24 @@ class VoteLIstRVAdapter (private val VoteList: ArrayList<VoteData>, val itemClic
         }
 
         holder.viewBinding.btnBad.setOnClickListener {
-            when(preferArray[position]) {
+            when(preferList[position]) {
                 0 -> {
-                    Log.i("test","none")
-                    preferArray[position] = -3
+                    Log.i("test","bad_non position $position")
+                    preferList[position] = -3
                     holder.viewBinding.btnBad.setImageResource(R.drawable.ic_thumb_down_clicked)
                     // 이미지 필터 변경(누른상태)
                 }
                 -3 -> {
-                    Log.i("test","cancel")
-                    preferArray[position] = 0
+                    Log.i("test","bad_cancel position $position")
+                    preferList[position] = 0
                     holder.viewBinding.btnBad.setImageResource(R.drawable.ic_thumb_down)
                     // 배열 값 0으로 바꾸기
                     // 이미지 필터 변경(안눌린상태)
 
                 }
                 1 -> {
-                    Log.i("test","click")
-                    preferArray[position] = -3
+                    Log.i("test","bad_click position $position")
+                    preferList[position] = -3
                     holder.viewBinding.btnBad.setImageResource(R.drawable.ic_thumb_down_clicked)
                     holder.viewBinding.btnGood.setImageResource(R.drawable.ic_thumb_up)
                     // 배열 값 1 로 바꾸기(
