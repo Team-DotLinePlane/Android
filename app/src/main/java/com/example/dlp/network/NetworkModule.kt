@@ -46,5 +46,6 @@ object NetworkModule {
     // API를 제공하는 서비스
     val mapService = kakaoRetrofit.create(MapService::class.java)
     val userService = retrofit.create(UserService::class.java)
+    val groupService = retrofit.create(GroupService::class.java)
 }
 

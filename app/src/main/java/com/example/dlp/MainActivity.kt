@@ -15,6 +15,7 @@ import com.example.dlp.databinding.ActivityMainBinding
 import com.example.dlp.network.NetworkModule.userService
 import com.example.dlp.network.request.SaveTokenRequest
 import com.example.dlp.ui.history.HistoryFragment
+import com.example.dlp.ui.home.HomeFragment
 import com.example.dlp.ui.map.MapFragment
 import com.example.dlp.util.PreferenceUtil
 import com.example.dlp.util.PreferenceUtil.EMPTY_TEXT

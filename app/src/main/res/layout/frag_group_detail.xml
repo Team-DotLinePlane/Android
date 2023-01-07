@@ -26,9 +26,9 @@
             android:background="@drawable/ic_back"/>
 
         <TextView
+            android:id="@+id/person_count_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="12명"
             android:paddingHorizontal="15dp"
             android:textAppearance="@style/Text.Bold_16_Black"
             app:layout_constraintEnd_toEndOf="parent"
@@ -156,6 +156,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:id="@+id/team_code_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -167,7 +168,7 @@
                 android:shadowRadius="10"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"
-                android:text="E458" />
+                />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -177,7 +178,6 @@
                     android:id="@+id/tv_groupname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="월요일 점심 팟"
                     android:textAppearance="@style/Text.Bold_24_Grey"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -285,6 +285,7 @@
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/member_rv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="visible"
@@ -345,6 +346,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/history_rv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:listitem="@layout/history_list_item" />

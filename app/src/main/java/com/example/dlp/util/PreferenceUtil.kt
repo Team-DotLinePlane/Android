@@ -16,6 +16,10 @@ object PreferenceUtil {
         return prefs.getString(key, defValue).toString()
     }
 
+    fun getFCMToken(): String {
+        return prefs.getString(FCM_TOKEN_TEXT, EMPTY_TEXT).toString()
+    }
+
     fun setString(key: String, str: String) {
         prefs.edit().putString(key, str).apply()
     }

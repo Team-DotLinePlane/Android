@@ -1,9 +1,15 @@
 package com.example.dlp.ui.map
 
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.content.pm.ResolveInfo
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -71,7 +77,8 @@ class MapFragment : Fragment() {
                 mapView.removeAllPOIItems()
                 it.forEach {
                     val marker = MapPOIItem()
-                    marker.itemName = "${it.placeName}|${it.categoryName}|${it.phone}"
+                    marker.itemName =
+                        "${it.placeName}|${it.categoryName}|${it.phone}|${it.x}|${it.y}|${it.placeName}"
                     marker.tag = 0
                     marker.mapPoint =
                         MapPoint.mapPointWithGeoCoord(it.y.toDouble(), it.x.toDouble())
@@ -112,6 +119,8 @@ class MapFragment : Fragment() {
         private val placeName: TextView = mCalloutBalloon.findViewById(R.id.place_name_tv)
         private val categoryName: TextView = mCalloutBalloon.findViewById(R.id.category_tv)
         private val phoneNumber: TextView = mCalloutBalloon.findViewById(R.id.phone_tv)
+        private val phoneImg: ImageView = mCalloutBalloon.findViewById(R.id.phone_iv)
+        private val mapIv: ImageView = mCalloutBalloon.findViewById(R.id.map_iv)
 
         override fun getCalloutBalloon(poiItem: MapPOIItem?): View {
             // 마커 클릭 시 나오는 말풍선
@@ -119,10 +128,45 @@ class MapFragment : Fragment() {
             placeName.text = poiInfo[0]
             categoryName.text = poiInfo[1]
             phoneNumber.text = poiInfo[2]
+
             return mCalloutBalloon
         }
 
         override fun getPressedCalloutBalloon(poiItem: MapPOIItem?): View {
+            val poiInfo = poiItem?.itemName!!.split("|")
+            val x = poiInfo[3]
+            val y = poiInfo[4]
+            val placeName = poiInfo[5]
+
+            phoneImg.setOnClickListener {
+                val intent = Intent(
+                    Intent.ACTION_DIAL,
+                    Uri.fromParts("tel", poiInfo[2], null),
+                )
+                startActivity(intent)
+            }
+            mapIv.setOnClickListener {
+                val url =
+                    "nmap://route/public?dlat=${y}&dlng=${x}&dname=${placeName}&appname=cocktaildakk"
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                intent.addCategory(Intent.CATEGORY_BROWSABLE)
+
+                val list: List<ResolveInfo> =
+                    requireContext().packageManager.queryIntentActivities(
+                        intent,
+                        PackageManager.MATCH_DEFAULT_ONLY,
+                    )
+                if (list.isEmpty()) {
+                    startActivity(
+                        Intent(
+                            Intent.ACTION_VIEW,
+                            Uri.parse("market://details?id=com.nhn.android.nmap"),
+                        ),
+                    )
+                } else {
+                    startActivity(intent)
+                }
+            }
             return mCalloutBalloon
         }
     }

@@ -31,6 +31,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_groupcode_title">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/teamcode_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="그룹코드 입력" />
