@@ -69,6 +69,14 @@ class MapViewModel : ViewModel() {
         fusedLocationClient.removeLocationUpdates(myLocationCallback)
     }
 
+    fun setSearchStr(searchStr: String) {
+        _categoryName.value = searchStr
+        if (userLocation.value != null) {
+            getRestaurant(userLocation.value!!.latitude, userLocation.value!!.longitude)
+        }
+
+    }
+
     inner class MyLocationCallback : LocationCallback() {
         override fun onLocationResult(locationResult: LocationResult) {
             super.onLocationResult(locationResult)
