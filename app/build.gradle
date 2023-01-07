@@ -67,4 +67,15 @@ dependencies {
     // Kakao Map
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation files('libs/libDaumMapAndroid.jar')
+
+    // network 라이브러리
+    implementation 'com.github.skydoves:sandwich:1.2.6'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // GPS 정보를 가져오기 위한 라이브러리 (fusedLocationManager)
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+
 }
