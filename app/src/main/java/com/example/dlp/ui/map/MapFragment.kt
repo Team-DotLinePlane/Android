@@ -49,6 +49,7 @@ class MapFragment : Fragment() {
                 Toast.makeText(requireContext(), "$seacrhStr 검색 중입니다.", Toast.LENGTH_SHORT).show()
                 categoryAdapter.selectedStr = seacrhStr
                 viewModel.setSearchStr(seacrhStr)
+                activityViewModel.updateSelectedKeyword("")
             }
         }
 

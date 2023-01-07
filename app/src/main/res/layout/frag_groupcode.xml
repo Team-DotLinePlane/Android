@@ -143,6 +143,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/confirm_bt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
@@ -152,6 +153,6 @@
             android:background="@drawable/view_round_15_main"
             android:layout_marginTop="40dp"
             android:text="@string/string_confirm"
-            android:textAppearance="@style/Text.Bold_16_Main"/>
+            android:textAppearance="@style/Text.Bold_16_Main" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -31,6 +31,9 @@ class HomeFragment : Fragment(), InsertGroupCodeDialogInterface {
                 val bottomSheet = BottomSheetDialog(this@HomeFragment)
                 bottomSheet.show(childFragmentManager, bottomSheet.tag)
             }
+            btnCreategroup.setOnClickListener {
+                (activity as MainActivity).replaceFramgent(com.example.dlp.ui.creategroup.CreateGroupFragment())
+            }
         }
     }
 
