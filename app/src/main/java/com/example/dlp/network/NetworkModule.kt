@@ -47,5 +47,6 @@ object NetworkModule {
     val mapService = kakaoRetrofit.create(MapService::class.java)
     val userService = retrofit.create(UserService::class.java)
     val groupService = retrofit.create(GroupService::class.java)
+    val voteService = retrofit.create(VoteService::class.java)
 }
 

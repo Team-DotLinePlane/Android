@@ -6,5 +6,7 @@ data class SelectGroupResponse(
     val memberResponses: List<MemberResponse>,
     val teamCode: String,
     val teamId: Int,
-    val teamName: String
+    val teamName: String,
+    val isVoteProgress : Boolean,
+    val voteId : Int,
 )

@@ -128,6 +128,9 @@ class MapFragment : Fragment() {
             placeName.text = poiInfo[0]
             categoryName.text = poiInfo[1]
             phoneNumber.text = poiInfo[2]
+            categoryName.setOnClickListener {
+                Log.i("Test","Clickec View")
+            }
 
             return mCalloutBalloon
         }
