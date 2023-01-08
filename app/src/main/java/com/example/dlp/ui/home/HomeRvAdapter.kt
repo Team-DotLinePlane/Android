@@ -2,6 +2,7 @@ package com.example.dlp.ui.home
 
 import android.graphics.Color
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -52,6 +53,7 @@ class HomeRvAdapter :
         fun bind(TeamMealTime: TeamMealTime) {
             binding.teamNameTv.text = TeamMealTime.teamName
             binding.teamNumberTv.text = "${TeamMealTime.numOfMembers.toString()} 명"
+            if(TeamMealTime.isAlarmActive) binding.tvVoteProceeding.visibility = View.VISIBLE
         }
     }
 
